@@ -1,6 +1,7 @@
 <div class="calculadora">
     <div class="display">
-
+        <div [(ngModel)]="valorAnterior">Valor anterior</div>
+        <div [(ngModel)]="valorActual">Valor actual</div>
     </div>
     <div class="botones">
         <button (click)="borrarTodo()">C</button>
