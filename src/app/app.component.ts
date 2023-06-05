@@ -5,6 +5,31 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass']
 })
+
 export class AppComponent {
   title = 'Calculadora';
+
+  borrar() {
+
+  }
+
+  borrarTodo() {
+
+  }
+
+  computar() {
+
+  }
+
+  agregarNumero() {
+
+  }
+
+  calcular() {
+
+  }
+
+
+
+
 }
