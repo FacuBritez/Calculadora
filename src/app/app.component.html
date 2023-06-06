@@ -4,7 +4,7 @@
         <div [(ngModel)]="valorActual">Valor actual</div>
     </div>
     <div class="botones">
-        <button (click)="borrarTodo()">C</button>
+        <button (click)="borrarTodo()" class="doble">C</button>
         <button (click)="borrar()">←</button>
         <button (click)="computar()">%</button>
         <br>
@@ -27,7 +27,7 @@
         <button (click)="computar()">+</button>
         <br>
         
-        <button (click)="agregarNumero()">0</button>
+        <button (click)="agregarNumero()" class="doble">0</button>
         <button (click)="agregarNumero()">.</button>
         <button (click)="calcular()">=</button>
     </div>
