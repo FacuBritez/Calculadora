@@ -1,34 +1,36 @@
-<div class="calculadora">
-    <div class="display">
-        <div [(ngModel)]="valorAnterior">Valor anterior</div>
-        <div [(ngModel)]="valorActual">Valor actual</div>
-    </div>
-    <div class="botones">
-        <button (click)="borrarTodo()" class="doble">C</button>
-        <button (click)="borrar()">←</button>
-        <button (click)="computar()">%</button>
-        <br>
+<div class="background">
+    <div class="calculadora">
+        <div class="display">
+            <div id="valor-anterior">Valor anterior</div>
+            <div id="valor-actual">Valor actual</div>
+        </div>
+        <div class="botones">
+            <button class="doble">C</button>
+            <button>←</button>
+            <button class="operador" value="/">%</button>
+            <br>
 
-        <button (click)="agregarNumero()">7</button>
-        <button (click)="agregarNumero()">8</button>
-        <button (click)="agregarNumero()">9</button>
-        <button (click)="computar()">x</button>
-        <br>
+            <button class="numero">7</button>
+            <button class="numero">8</button>
+            <button class="numero">9</button>
+            <button class="operador" value="*">x</button>
+            <br>
 
-        <button (click)="agregarNumero()">4</button>
-        <button (click)="agregarNumero()">5</button>
-        <button (click)="agregarNumero()">6</button>
-        <button (click)="computar()">-</button>
-        <br>
+            <button class="numero">4</button>
+            <button class="numero">5</button>
+            <button class="numero">6</button>
+            <button class="operador" value="-">-</button>
+            <br>
 
-        <button (click)="agregarNumero()">1</button>
-        <button (click)="agregarNumero()">2</button>
-        <button (click)="agregarNumero()">3</button>
-        <button (click)="computar()">+</button>
-        <br>
-        
-        <button (click)="agregarNumero()" class="doble">0</button>
-        <button (click)="agregarNumero()">.</button>
-        <button (click)="calcular()">=</button>
+            <button class="numero">1</button>
+            <button class="numero">2</button>
+            <button class="numero">3</button>
+            <button class="operador" value="+">+</button>
+            <br>
+
+            <button class="doble">0</button>
+            <button>.</button>
+            <button>=</button>
+        </div>
     </div>
 </div>
