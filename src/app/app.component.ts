@@ -25,6 +25,15 @@ export class AppComponent {
       boton.addEventListener('click', () => this.display.agregarNumero(boton.innerHTML));
     });
 
+
+    //Console.log() para ver el valor de los operadores
+    this.botonesOperadores.forEach((boton) => {
+      if (boton instanceof HTMLButtonElement) {
+        console.log(boton.value);
+      }
+    });
+
+
     this.botonesOperadores.forEach((boton) => {
       if (boton instanceof HTMLButtonElement) {
         boton.addEventListener('click', () => this.display.computar(boton.value));
@@ -63,12 +72,13 @@ export class AppComponent {
     },
 
     tipoOperacion: '',
-    valorActual: "",
-    valorAnterior: "",
+    valorActual: '',
+    valorAnterior: '',
 
     borrar() {
       this.valorActual = this.valorActual.toString().slice(0, -1)
       this.imprimirValores();
+      console.log("borrar()")
     },
 
     borrarTodo() {
@@ -76,37 +86,51 @@ export class AppComponent {
       this.valorAnterior = '';
       this.tipoOperacion = '';
       this.imprimirValores();
+      console.log("borrarTodo()")
     },
 
     computar(operador: string) {
-      this.tipoOperacion !== 'igual' && this.calcular();
+      console.log(operador)
+      
+      //Esta linea trae problemas y no recuerdo para que sirve, averigua, hace que operador sea ''.
+      //this.tipoOperacion !== 'igual' && this.calcular();
       this.tipoOperacion = operador;
       this.valorAnterior = this.valorActual || this.valorAnterior;
       this.valorActual = '';
       this.imprimirValores();
+      console.log("computar()" + operador);
     },
 
     agregarNumero(numero: string) {
       if (numero == '.' && this.valorActual.includes('.')) return
       this.valorActual += numero;
       this.imprimirValores();
+      console.log("agregarNumero() el numero actual es " + this.valorActual)
     },
 
     displayValorActual: this.displayValorActual,
     displayValorAnterior: this.displayValorAnterior,
 
     imprimirValores() {
-      if(this.displayValorActual == null || this.displayValorAnterior == null) return
+
+      console.log("imprimirValores() valores antes del if: " + this.displayValorActual + ' ' + this.displayValorAnterior)
+
+      //Error aquí, el console.log() anterior muestra que siempre son null y por eso retorna.
+      if (this.displayValorActual == null || this.displayValorAnterior == null) return
 
       this.displayValorActual.textContent = this.valorActual;
       this.displayValorAnterior.textContent = `${this.valorAnterior} ${this.tipoOperacion || ''}`;
+      console.log("imprimirValores()")
     },
 
     calcular() {
       const valorAnterior = parseFloat(this.valorAnterior);
       const valorActual = parseFloat(this.valorActual);
 
+      console.log("calcular() " + this.tipoOperacion)
+
       this.valorActual = this.calculadora[this.tipoOperacion as keyof typeof this.signos](valorAnterior, valorActual).toString();
+      console.log("calcular()");
     }
   }
 }
