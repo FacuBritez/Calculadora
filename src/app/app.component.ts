@@ -9,32 +9,27 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Calculadora';
 
-  displayValorAnterior: HTMLElement | null;
-  displayValorActual: HTMLElement | null;
-  botonesNumeros: NodeListOf<Element>;
-  botonesOperadores: NodeListOf<Element>;
+  displayValorAnterior: HTMLElement | null = null;
+  displayValorActual: HTMLElement | null = null;
+  botonesNumeros: NodeListOf<Element> = document.querySelectorAll('numero');
+  botonesOperadores: NodeListOf<Element> = document.querySelectorAll('.operador');
 
-  constructor() {
+    //display = new Display(displayValorAnterior, displayValorActual);
+
+  //Es para que se ejecute despues de que se cargue el DOM, sino se asignan cosas vacias.
+  ngAfterViewInit(){
     this.displayValorAnterior = document.getElementById('valor-anterior');
     this.displayValorActual = document.getElementById('valor-actual');
     this.botonesNumeros = document.querySelectorAll('.numero');
     this.botonesOperadores = document.querySelectorAll('.operador');
 
-    //display = new Display(displayValorAnterior, displayValorActual);
-
-    console.log(this.botonesNumeros)
-
     this.botonesNumeros.forEach(boton => {
       boton.addEventListener('click', () => this.display.agregarNumero(boton.innerHTML));
     });
 
-    console.log(this.botonesOperadores)
-
-    /*
-    this.botonesOperadores.forEach((boton: HTMLElement) => {
+    /*this.botonesOperadores.forEach((boton: HTMLElement) => {
       boton.addEventListener('click', () => this.display.computar(boton.value));
-    });
-    */
+    });*/
   }
 
   valorAnterior: number | null = null;
@@ -70,11 +65,11 @@ export class AppComponent {
 
     },
 
-    computar(operador:string) {
+    computar(operador: string) {
 
     },
 
-    agregarNumero(numero:string) {
+    agregarNumero(numero: string) {
       console.log("agregarNumero() agregado al boton" + numero)
     },
 
@@ -84,6 +79,6 @@ export class AppComponent {
   }
 
 
-
+ 
 
 }
