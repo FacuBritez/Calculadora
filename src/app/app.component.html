@@ -6,31 +6,31 @@
         </div>
         <div class="botones">
             <button (click)="display.borrarTodo()" class="doble">C</button>
-            <button>←</button>
-            <button class="operador" value="/">%</button>
+            <button (click)="display.borrar()">←</button>
+            <button [value]="'division'" class="operador">%</button>
             <br>
 
             <button class="numero">7</button>
             <button class="numero">8</button>
             <button class="numero">9</button>
-            <button class="operador" value="*">x</button>
+            <button class="operador" [value]="'multiplicar'">x</button>
             <br>
 
             <button class="numero">4</button>
             <button class="numero">5</button>
             <button class="numero">6</button>
-            <button class="operador" value="-">-</button>
+            <button class="operador" [value]="'restar'">-</button>
             <br>
 
             <button class="numero">1</button>
             <button class="numero">2</button>
             <button class="numero">3</button>
-            <button class="operador" value="+">+</button>
+            <button class="operador" [value]="'sumar'">+</button>
             <br>
 
             <button class="numero doble">0</button>
             <button class="numero">.</button>
-            <button class="operador">=</button>
+            <button class="operador" [value]="'igual'">=</button>
         </div>
     </div>
 </div>
