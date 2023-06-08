@@ -1,35 +1,35 @@
 <div class="background">
     <div class="calculadora">
         <div class="display">
-            <div id="valor-anterior">Valor anterior</div>
-            <div id="valor-actual">Valor actual</div>
+            <div id="valor-anterior" class="valor">Valor anterior</div>
+            <div id="valor-actual" class="valor">Valor actual</div>
         </div>
         <div class="botones">
-            <button (click)="display.borrarTodo()" class="doble">C</button>
-            <button (click)="display.borrar()">←</button>
+            <button (click)="display.borrarTodo()" class="doble margin">C</button>
+            <button (click)="display.borrar()" class="margin">←</button>
             <button [value]="'division'" class="operador">%</button>
             <br>
 
-            <button class="numero">7</button>
-            <button class="numero">8</button>
-            <button class="numero">9</button>
+            <button class="numero margin">7</button>
+            <button class="numero margin">8</button>
+            <button class="numero margin">9</button>
             <button class="operador" [value]="'multiplicar'">x</button>
             <br>
 
-            <button class="numero">4</button>
-            <button class="numero">5</button>
-            <button class="numero">6</button>
+            <button class="numero margin">4</button>
+            <button class="numero margin">5</button>
+            <button class="numero margin">6</button>
             <button class="operador" [value]="'restar'">-</button>
             <br>
 
-            <button class="numero">1</button>
-            <button class="numero">2</button>
-            <button class="numero">3</button>
+            <button class="numero margin">1</button>
+            <button class="numero margin">2</button>
+            <button class="numero margin">3</button>
             <button class="operador" [value]="'sumar'">+</button>
             <br>
 
-            <button class="numero doble">0</button>
-            <button class="numero">.</button>
+            <button class="numero doble margin">0</button>
+            <button class="numero margin">.</button>
             <button class="operador" [value]="'igual'">=</button>
         </div>
     </div>
