@@ -7,15 +7,29 @@
     margin: auto
     background: lightgrey
     width: 300px
+    padding: 15px
     border: 1px solid black
-    
+    border-radius: 5px
+
     .display
         background: grey
         border: 1px solid black
         text-align: right
+        border-radius: 5px
+        margin-bottom: 5px
+        #valor-anterior,
+        #valor-actual
+            padding: 3px
+            margin-right: 5px
+        #valor-anterior
+            font-size: 20px
 
+    //El width y el margin deben sumar 300 (el width de .calculadora)
     button
-        width: 75px
+        width: 69px
         height: 35px
+        margin-bottom: 3px
     button.doble
-        width: 150px
+        width: 146px //69 + 69 + 8 (el margin) = botton doble
+    button.margin
+        margin-right: 8px
