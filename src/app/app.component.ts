@@ -93,13 +93,11 @@ export class AppComponent {
     },
 
     computar(operador: string) {
-      console.log(operador)
-
-      //Esta linea trae problemas y no recuerdo para que sirve, averigua, hace que operador sea ''.
-      //this.tipoOperacion !== 'igual' && this.calcular();
-
+      if (this.tipoOperacion !== 'igual') {this.calcular()}
       this.tipoOperacion = operador;
+
       this.valorAnterior = this.valorActual || this.valorAnterior;
+
       this.valorActual = '';
       this.imprimirValores();
       console.log("computar()" + operador);
@@ -132,6 +130,7 @@ export class AppComponent {
 
       console.log("calcular() " + this.tipoOperacion)
 
+      if (isNaN(valorActual) || isNaN(valorAnterior) ) return
       this.valorActual = this.calculadora[this.tipoOperacion as keyof typeof this.signos](valorAnterior, valorActual).toString();
       console.log("calcular()");
     }
