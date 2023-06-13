@@ -20,22 +20,12 @@ export class AppComponent {
     this.displayValorActual = document.getElementById('valor-actual');
     this.display.displayValorActual = this.displayValorActual;
     this.display.displayValorAnterior = this.displayValorAnterior;
-    console.log(this.displayValorActual);
     this.botonesNumeros = document.querySelectorAll('.numero');
     this.botonesOperadores = document.querySelectorAll('.operador');
 
     this.botonesNumeros.forEach(boton => {
       boton.addEventListener('click', () => this.display.agregarNumero(boton.innerHTML));
     });
-
-
-    //Console.log() para ver el valor de los operadores
-    this.botonesOperadores.forEach((boton) => {
-      if (boton instanceof HTMLButtonElement) {
-        console.log(boton.value);
-      }
-    });
-
 
     this.botonesOperadores.forEach((boton) => {
       if (boton instanceof HTMLButtonElement) {
@@ -81,7 +71,6 @@ export class AppComponent {
     borrar() {
       this.valorActual = this.valorActual.toString().slice(0, -1)
       this.imprimirValores();
-      console.log("borrar()")
     },
 
     borrarTodo() {
@@ -89,7 +78,6 @@ export class AppComponent {
       this.valorAnterior = '';
       this.tipoOperacion = '';
       this.imprimirValores();
-      console.log("borrarTodo()")
     },
 
     computar(operador: string) {
@@ -100,26 +88,19 @@ export class AppComponent {
 
       this.valorActual = '';
       this.imprimirValores();
-      console.log("computar()" + operador);
     },
 
     agregarNumero(numero: string) {
       if (numero == '.' && this.valorActual.includes('.')) return
       this.valorActual += numero;
       this.imprimirValores();
-      console.log("agregarNumero() el numero actual es " + this.valorActual)
     },
 
     displayValorActual: this.displayValorActual,
     displayValorAnterior: this.displayValorAnterior,
 
     imprimirValores() {
-
-      console.log("imprimirValores()")
-      console.log("imprimirValores() valores antes del if: " + this.displayValorActual + ' ' + this.displayValorAnterior)
-
       if (this.displayValorActual == null || this.displayValorAnterior == null) return
-
       this.displayValorActual.textContent = this.valorActual;
       this.displayValorAnterior.textContent = `${this.valorAnterior} ${this.signos[this.tipoOperacion as keyof typeof this.signos] || ''}`;
     },
@@ -127,12 +108,8 @@ export class AppComponent {
     calcular() {
       const valorAnterior = parseFloat(this.valorAnterior);
       const valorActual = parseFloat(this.valorActual);
-
-      console.log("calcular() " + this.tipoOperacion)
-
       if (isNaN(valorActual) || isNaN(valorAnterior) ) return
       this.valorActual = this.calculadora[this.tipoOperacion as keyof typeof this.signos](valorAnterior, valorActual).toString();
-      console.log("calcular()");
     }
   }
 }
