@@ -123,7 +123,7 @@ export class AppComponent {
       if (this.displayValorActual == null || this.displayValorAnterior == null) return
 
       this.displayValorActual.textContent = this.valorActual;
-      this.displayValorAnterior.textContent = `${this.valorAnterior} ${this.tipoOperacion || ''}`;
+      this.displayValorAnterior.textContent = `${this.valorAnterior} ${this.signos[this.tipoOperacion as keyof typeof this.signos] || ''}`;
     },
 
     calcular() {
