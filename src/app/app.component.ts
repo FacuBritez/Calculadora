@@ -11,13 +11,16 @@ export class AppComponent {
 
   displayValorAnterior: HTMLElement | null = null;
   displayValorActual: HTMLElement | null = null;
-  botonesNumeros: NodeListOf<Element> = document.querySelectorAll('numero');
+  botonesNumeros: NodeListOf<Element> = document.querySelectorAll('.numero');
   botonesOperadores: NodeListOf<Element> = document.querySelectorAll('.operador');
 
   //Es para que se ejecute despues de que se cargue el DOM, sino se asignan cosas vacias.
   ngAfterViewInit() {
     this.displayValorAnterior = document.getElementById('valor-anterior');
     this.displayValorActual = document.getElementById('valor-actual');
+    this.display.displayValorActual = this.displayValorActual;
+    this.display.displayValorAnterior = this.displayValorAnterior;
+    console.log(this.displayValorActual);
     this.botonesNumeros = document.querySelectorAll('.numero');
     this.botonesOperadores = document.querySelectorAll('.operador');
 
@@ -91,9 +94,10 @@ export class AppComponent {
 
     computar(operador: string) {
       console.log(operador)
-      
+
       //Esta linea trae problemas y no recuerdo para que sirve, averigua, hace que operador sea ''.
       //this.tipoOperacion !== 'igual' && this.calcular();
+
       this.tipoOperacion = operador;
       this.valorAnterior = this.valorActual || this.valorAnterior;
       this.valorActual = '';
@@ -113,14 +117,13 @@ export class AppComponent {
 
     imprimirValores() {
 
+      console.log("imprimirValores()")
       console.log("imprimirValores() valores antes del if: " + this.displayValorActual + ' ' + this.displayValorAnterior)
 
-      //Error aquí, el console.log() anterior muestra que siempre son null y por eso retorna.
       if (this.displayValorActual == null || this.displayValorAnterior == null) return
 
       this.displayValorActual.textContent = this.valorActual;
       this.displayValorAnterior.textContent = `${this.valorAnterior} ${this.tipoOperacion || ''}`;
-      console.log("imprimirValores()")
     },
 
     calcular() {
