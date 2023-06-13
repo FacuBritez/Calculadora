@@ -1,22 +1,21 @@
 .background
     height: 100vh
-    background: #2c2c2c
+    background: grey
     display: flex
 
 .calculadora
     margin: auto
-    background: lightgrey
+    background: #2c2c2c
     width: 300px
-    padding: 15px
+    padding: 10px
     border: 1px solid black
-    border-radius: 5px
+    border-radius: 10px
 
     .display
-        background: grey
-        border: 1px solid black
+        background: white
         text-align: right
-        border-radius: 5px
-        margin-bottom: 5px
+        border-radius: 10px
+        margin-bottom: 15px
         #valor-anterior,
         #valor-actual
             padding: 3px
@@ -29,9 +28,14 @@
         //El width y el margin deben sumar 300 (el width de .calculadora)
         button
             width: 69px
-            height: 35px
-            margin-bottom: 3px
+            height: 45px
+            margin-bottom: 10px
+            border: none
+            border-radius: 10px
+            transition: 1s
         button.doble
             width: 146px //69 + 69 + 8 (el margin) = botton doble
         button.margin
             margin-right: 8px
+        button:hover
+            background: lightgrey
