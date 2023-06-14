@@ -12,10 +12,10 @@
     border-radius: 10px
 
     .display
-        background: white
+        background: lightgrey
         text-align: right
         border-radius: 10px
-        margin-bottom: 15px
+        margin: 10px 0px 35px
 
         #valor-anterior,
         #valor-actual
@@ -35,9 +35,17 @@
             border: none
             border-radius: 10px
             transition: 1s
+        button:hover
+            background: lightgrey
         button.doble
             width: 146px //69 + 69 + 8 (el margin) = botton doble
         button.margin
             margin-right: 8px
-        button:hover
-            background: lightgrey
+        button.borrarTodo
+            background: #C0392B
+        button.borrarTodo:hover
+            background: #A93226
+        button.operador
+            background: #6BA2D1
+        button.operador:hover
+            background: #5598be
